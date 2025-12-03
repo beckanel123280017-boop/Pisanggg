@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keripik Pisang Lampung - Landing Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #1f2937;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      opacity: 0.8;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: center;
+      padding: 32px 0 40px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      background: #facc15;
+      color: #111827;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-size: 2.1rem;
+      margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: #9ca3af;
+      margin-bottom: 16px;
+    }
+
+    .hero-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 16px;
+      font-size: 0.85rem;
+    }
+
+    .hero-highlights span {
+      background: #111827;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid #1f2937;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary {
+      background: #22c55e;
+      color: #022c22;
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      background: #16a34a;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: #4b5563;
+      color: #e5e7eb;
+    }
+
+    .btn-outline:hover {
+      background: #111827;
+    }
+
+    .hero-right {
+      background: radial-gradient(circle at top, #facc15, #f97316, #0f172a 70%);
+      border-radius: 20px;
+      min-height: 230px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-product-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 14px;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 1.1fr 1.2fr;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .hero-product-img {
+      background: #111827;
+      border-radius: 12px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      text-align: center;
+      padding: 6px;
+    }
+
+    .hero-product-info h3 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .hero-product-info p {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      margin-bottom: 6px;
+    }
+
+    .hero-product-price {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #bbf7d0;
+    }
+
+    .hero-note {
+      font-size: 0.78rem;
+      color: #e5e7eb;
+      opacity: 0.8;
+      margin-top: 8px;
+    }
+
+    section {
+      padding: 20px 0;
+      border-top: 1px solid #1f2937;
+    }
+
+    .section-header {
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .card {
+      background: #020617;
+      border-radius: 14px;
+      border: 1px solid #1f2937;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .card-img {
+      background: #111827;
+      border-radius: 10px;
+      height: 130px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .card-desc {
+      font-size: 0.8rem;
+      color: #9ca3af;
+      flex: 1;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 4px;
+      font-size: 0.8rem;
+    }
+
+    .price {
+      color: #4ade80;
+      font-weight: 600;
+    }
+
+    .chip {
+      border-radius: 999px;
+      padding: 3px 8px;
+      background: #111827;
+      border: 1px solid #374151;
+      font-size: 0.75rem;
+    }
+
+    .benefit-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .benefit-item {
+      background: #020617;
+      border-radius: 12px;
+      border: 1px solid #1f2937;
+      padding: 10px;
+      font-size: 0.85rem;
+      color: #d1d5db;
+    }
+
+    .benefit-item h3 {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+      color: #e5e7eb;
+    }
+
+    .promo-callout {
+      background: #facc15;
+      color: #111827;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    .promo-callout strong {
+      font-size: 0.95rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 10px;
+      background: #111827;
+      border: 1px solid #1f2937;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      margin-top: 10px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #1f2937;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .testimonial-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+      font-size: 0.82rem;
+    }
+
+    .testimonial-item {
+      background: #020617;
+      border-radius: 12px;
+      border: 1px solid #1f2937;
+      padding: 10px;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .order-box {
+      background: #020617;
+      border-radius: 14px;
+      border: 1px solid #4b5563;
+      padding: 14px;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    .order-box ol {
+      margin-left: 16px;
+      margin-top: 6px;
+    }
+
+    .order-box code {
+      font-size: 0.8rem;
+      display: inline-block;
+      margin-top: 6px;
+      background: #0b1120;
+      padding: 6px;
+      border-radius: 8px;
+      border: 1px solid #1f2937;
+      color: #e5e7eb;
+    }
+
+    footer {
+      text-align: center;
+      padding: 16px;
+      font-size: 0.78rem;
+      color: #6b7280;
+      border-top: 1px solid #1f2937;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <div class="logo">Keripik Pisang Lampung</div>
+    <div class="nav-links">
+      <a href="#produk">Produk</a>
+      <a href="#keunggulan">Keunggulan</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#testimoni">Testimoni</a>
+      <a href="#order">Order</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <div class="badge">Oleh-oleh khas Lampung • UMKM</div>
+      <h1 class="hero-title">Keripik Pisang Renyah, Manis, dan Bikin Nagih!</h1>
+      <p class="hero-subtitle">
+        Landing page khusus promosi keripik pisang kamu. Tampilkan varian rasa, harga, poster promosi, galeri foto, sampai cara pesan via WhatsApp dalam satu halaman.
+      </p>
+
+      <div class="hero-highlights">
+        <span>100% pisang pilihan</span>
+        <span>Tahan hingga ±3 bulan</span>
+        <span>Cocok untuk oleh-oleh & reseller</span>
+      </div>
+
+      <div class="hero-actions">
+        <!-- GANTI NOMOR WA DI LINK DI BAWAH -->
+        <a href="https://wa.me/6281234567890?text=Halo%20kak,%20saya%20mau%20pesan%20keripik%20pisang" target="_blank">
+          <button class="btn-primary">
+            Pesan via WhatsApp
+          </button>
+        </a>
+        <a href="#produk">
+          <button class="btn-outline">Lihat Varian & Harga</button>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-product-card">
+        <div class="hero-product-img">
+          Ganti area ini dengan foto kemasan utama keripik pisang kamu  
+          (misal file: <br> <code>img/keripik-utama.jpg</code>).
+        </div>
+        <div class="hero-product-info">
+          <h3>Paket Hemat 3 Varian</h3>
+          <p>1 Cokelat + 1 Keju + 1 Original. Cocok untuk oleh-oleh keluarga dan teman.</p>
+          <div class="hero-product-price">Mulai dari Rp 55.000 / paket</div>
+        </div>
+      </div>
+      <div class="hero-note">
+        Bisa disesuaikan dengan brand kamu: nama usaha, harga, promo, dan kontak tinggal diganti di file <code>index.html</code>.
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUK -->
+  <section id="produk">
+    <div class="section-header">
+      <h2 class="section-title">Varian Produk & Harga</h2>
+      <p class="section-subtitle">
+        Sesuaikan bagian ini dengan varian keripik pisang yang kamu jual. Ganti nama, harga, dan fotonya.
+      </p>
+    </div>
+
+    <div class="product-grid">
+      <!-- Produk 1 -->
+      <div class="card">
+        <!-- GANTI src dengan gambar asli: img/cokelat.jpg -->
+        <img class="card-img" src="img/cokelat.jpg" alt="Keripik Pisang Cokelat" />
+        <div class="card-title">Keripik Pisang Cokelat</div>
+        <div class="card-desc">
+          Keripik pisang renyah dilapisi cokelat manis, favorit semua kalangan.
+        </div>
+        <div class="card-footer">
+          <span class="price">Rp 20.000</span>
+          <span class="chip">Best Seller</span>
+        </div>
+      </div>
+
+      <!-- Produk 2 -->
+      <div class="card">
+        <!-- GANTI src: img/keju.jpg -->
+        <img class="card-img" src="img/keju.jpg" alt="Keripik Pisang Keju" />
+        <div class="card-title">Keripik Pisang Keju</div>
+        <div class="card-desc">
+          Rasa gurih keju berpadu dengan renyahnya pisang, cocok untuk pecinta asin-gurih.
+        </div>
+        <div class="card-footer">
+          <span class="price">Rp 20.000</span>
+          <span class="chip">Gurih</span>
+        </div>
+      </div>
+
+      <!-- Produk 3 -->
+      <div class="card">
+        <!-- GANTI src: img/original.jpg -->
+        <img class="card-img" src="img/original.jpg" alt="Keripik Pisang Original" />
+        <div class="card-title">Keripik Pisang Original</div>
+        <div class="card-desc">
+          Tanpa perisa tambahan, rasa pisang asli yang renyah dan ringan.
+        </div>
+        <div class="card-footer">
+          <span class="price">Rp 18.000</span>
+          <span class="chip">Favorit Keluarga</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="promo-callout">
+      <strong>Contoh promo:</strong> Beli 5 bungkus bebas campur rasa, gratis 1 bungkus rasa original.  
+      Tulis promo spesialmu di bagian ini.
+    </div>
+  </section>
+
+  <!-- KEUNGGULAN / POSTER PROMO -->
+  <section id="keunggulan">
+    <div class="section-header">
+      <h2 class="section-title">Keunggulan & Poster Promosi</h2>
+      <p class="section-subtitle">
+        Jelaskan kenapa produk kamu beda dari yang lain, dan gunakan poster sebagai materi promosi di sosial media.
+      </p>
+    </div>
+
+    <div class="benefit-list">
+      <div class="benefit-item">
+        <h3>Bahan Baku Berkualitas</h3>
+        <p>Pisang pilihan, diolah secara higienis dengan standar produksi rumahan yang terjaga.</p>
+      </div>
+      <div class="benefit-item">
+        <h3>Rasa Konsisten</h3>
+        <p>Resep yang sudah teruji, sehingga rasa antar batch tetap stabil dan terjaga.</p>
+      </div>
+      <div class="benefit-item">
+        <h3>Cocok untuk Reseller</h3>
+        <p>Kemasan menarik dan mudah dikirim, cocok untuk dijual kembali secara online maupun offline.</p>
+      </div>
+    </div>
+
+    <div class="promo-callout" style="margin-top:14px;">
+      Di sini kamu bisa menempatkan <strong>gambar poster promosi</strong> seperti:
+      daftar harga, paket hemat, promo bundling, dan lain-lain.  
+      Contoh: upload file <code>img/poster-promo.jpg</code> lalu tampilkan di galeri di bawah.
+    </div>
+  </section>
+
+  <!-- GALERI & VIDEO -->
+  <section id="galeri">
+    <div class="section-header">
+      <h2 class="section-title">Galeri Foto & Video</h2>
+      <p class="section-subtitle">
+        Tampilkan foto-foto terbaik produkmu dan sertakan video singkat promosi (misalnya dari YouTube atau TikTok).
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <!-- GANTI src dengan foto asli -->
+      <img src="img/galeri1.jpg" alt="Foto keripik 1" />
+      <img src="img/galeri2.jpg" alt="Foto keripik 2" />
+      <img src="img/galeri3.jpg" alt="Foto keripik 3" />
+      <img src="img/galeri4.jpg" alt="Poster promo" />
+    </div>
+
+    <div class="video-wrapper">
+      <!-- GANTI YOUTUBE_VIDEO_ID dengan ID video promosimu -->
+      <iframe
+        src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID"
+        title="Video Promosi Keripik Pisang"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
+
+  <!-- TESTIMONI -->
+  <section id="testimoni">
+    <div class="section-header">
+      <h2 class="section-title">Testimoni Pelanggan</h2>
+      <p class="section-subtitle">
+        Tambahkan beberapa testimoni singkat untuk meningkatkan kepercayaan calon pembeli.
+      </p>
+    </div>
+
+    <div class="testimonial-list">
+      <div class="testimonial-item">
+        <div class="testimonial-name">Rina - Bandar Lampung</div>
+        <div>"Rasanya enak, renyah, dan manisnya pas. Cocok banget buat ngemil sambil nonton."</div>
+      </div>
+      <div class="testimonial-item">
+        <div class="testimonial-name">Budi - Jakarta</div>
+        <div>"Sering order buat oleh-oleh ke kantor. Teman-teman pada suka, packaging juga aman."</div>
+      </div>
+      <div class="testimonial-item">
+        <div class="testimonial-name">Sari - Palembang</div>
+        <div>"Pengiriman cepat, keripik sampai tidak remuk. Recommended banget!"</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARA ORDER -->
+  <section id="order">
+    <div class="section-header">
+      <h2 class="section-title">Cara Pemesanan</h2>
+      <p class="section-subtitle">
+        Jelaskan langkah-langkah pemesanan dengan singkat dan jelas agar pembeli langsung paham.
+      </p>
+    </div>
+
+    <div class="order-box">
+      <p>Langkah pemesanan:</p>
+      <ol>
+        <li>Pilih varian dan jumlah keripik pisang yang diinginkan.</li>
+        <li>Kirim pesan ke WhatsApp kami dengan format berikut.</li>
+        <li>Tunggu konfirmasi total harga dan ongkir.</li>
+        <li>Lakukan pembayaran (transfer / metode lain yang kamu sediakan).</li>
+        <li>Pesanan diproses dan dikirim, resi akan dikirim via WhatsApp.</li>
+      </ol>
+
+      <code>
+        Halo kak, saya mau pesan keripik pisang:<br />
+        - Cokelat 2 bungkus<br />
+        - Keju 1 bungkus<br />
+        Nama : ...<br />
+        Alamat : ...<br />
+        Metode pembayaran : ...
+      </code>
+
+      <div style="margin-top:10px;">
+        <!-- GANTI NOMOR WA DI SINI JUGA -->
+        <a href="https://wa.me/6281234567890?text=Halo%20kak,%20saya%20mau%20pesan%20keripik%20pisang" target="_blank">
+          <button class="btn-primary">Chat WhatsApp Sekarang</button>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; <span id="year"></span> Keripik Pisang Lampung • Landing Page Promosi.
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
